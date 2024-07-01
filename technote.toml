@@ -1,0 +1,23 @@
+[technote]
+id = "SITCOMTN-133"
+series_id = "SITCOMTN"
+canonical_url = "https://sitcomtn-133.lsst.io"
+github_url = "https://github.com/lsst-sitcom/sitcomtn-133"
+github_default_branch = "main"
+date_created = 2024-07-01T21:58:50Z
+organization.name = "Vera C. Rubin Observatory"
+organization.ror = "https://ror.org/048g3cy84"
+license.id = "CC-BY-4.0"
+
+[technote.status]
+state = "draft"
+
+[[technote.authors]]
+name.given = "Bryce"
+name.family = "Kalmbach"
+internal_id = "kalmbachb"
+orcid = "https://orcid.org/0000-0002-6825-5283"
+[[technote.authors.affiliations]]
+name = "University of Washington"
+internal_id = "Washington"
+address = "Dept. of Astronomy, Box 351580, Seattle, WA 98195, USA"
