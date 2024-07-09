@@ -79,7 +79,7 @@ In figure 5 we see the intra-focal donut stamps for detector 2 between 60 second
 4) **Recentering Failures**: The WEP code recenters sources before saving the final postage stamps through a convolution of a donut model identifying the center of the source with a peak finding algorithm. We do this to correct for any shifts of a few pixels due to the WCS translation between catalog coordinates and pixel values. However, if a source identified in the reference catalog is not present in the image or there is a low SNR the peak finder can center on hot pixels or sources that come into the edge of the postage stamp and create large recenters greater than 5-10 pixles that we would anticipate being the maximum shift needed for a source that is present in the image. The sources in columns 5 and 6 show this effect as the 60 second centroid positions are much different than the 90 second centroid positions. As a result, we will add a max recentering configuration to the WEP code before commissioning.
 
 <figure>
-  <img src="notebooks/figures/stamp_rejected_60_90_det_2.png" alt="Donuts accepted at 60 seconds exposure time but not 90 secodns."/>
+  <img src="https://github.com/lsst-sitcom/sitcomtn-133/tree/main/notebooks/figures/stamp_rejected_60_90_det_2.png" alt="Donuts accepted at 60 seconds exposure time but not 90 secodns."/>
   <figcaption>Figure 5: Intra-focal donut postage stamps for detector 2 that are used in the final Zernike calculation at 60 seconds exposure time (top row) but not at 90 seconds (bottom row).</figcaption>
 </figure>
 
