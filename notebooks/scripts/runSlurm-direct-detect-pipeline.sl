@@ -4,7 +4,7 @@
 #SBATCH --nodes 1
 #SBATCH --mem=200G
 #SBATCH --cpus-per-task=18
-#SBATCH -t 100:00:00
+#SBATCH -t 10:00:00
 #SBATCH --job-name comcam_exp_time_direct-detect-pipeline
 #SBATCH --output=/sdf/home/b/brycek/aos_repo/brycek/WET-013/sitcomtn-133/notebooks/scripts/direct-detect-pipeline.out
 echo "starting at `date` on `hostname`"
