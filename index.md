@@ -31,7 +31,7 @@ The field we chose was centered at (RA, Dec) = (14:06:22.298, -26:40:56.5017) at
 
 
 <figure>
-  <img src="notebooks/figures/raw_det_4.png" alt="Detector 4 Raw"/>
+  <img src="https://raw.githubusercontent.com/lsst-sitcom/sitcomtn-133/main/notebooks/figures/raw_det_4.png" alt="Detector 4 Raw"/>
   <figcaption>Figure 1: Raw simulated extra-focal images for detector 4 on LSST ComCam across 7 different exposure times.</figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ The field we chose was centered at (RA, Dec) = (14:06:22.298, -26:40:56.5017) at
 After ingesting the raw images we ran Instrument Signature Removal (ISR) on the data and saved them to the collection `WET-013` in the AOS butler. This way we have a shared set of post-ISR images we can use for processing in different ways. Figure 2 shows what the same exposures as the raws in Figure 1 look like after ISR.
 
 <figure>
-  <img src="notebooks/figures/post_isr_det_4.png" alt="Detector 4 Post-ISR"/>
+  <img src="https://raw.githubusercontent.com/lsst-sitcom/sitcomtn-133/main/notebooks/figures/post_isr_det_4.png" alt="Detector 4 Post-ISR"/>
   <figcaption>Figure 2: Simulated extra-focal images for detector 4 on LSST ComCam after Instrument Signature Removal.</figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ To make a fair comparison of the catalog contents we also run the direct detecti
 In Figure 3 we show the comparison between the two catalogs in the 10 second and 90 second exposures of detector 4. The Gaia catalog has the same sources in each image and the difference between detected sources in 10 and 90 seconds using direct detection is small as we will show more conclusively later in this section but first we will analyze the results of the Gaia-based donut catalog.
 
 <figure>
-  <img src="notebooks/figures/wcs_direct_10_90_comparison_det_4.png" alt="Detector 4 Gaia Catalog vs Direct"/>
+  <img src="https://raw.githubusercontent.com/lsst-sitcom/sitcomtn-133/main/notebooks/figures/wcs_direct_10_90_comparison_det_4.png" alt="Detector 4 Gaia Catalog vs Direct"/>
   <figcaption>Figure 3: Comparison of sources detected in 10 second and 90 second exposures with direct detection and the Gaia-based catalog.</figcaption>
 </figure>
 
@@ -65,14 +65,14 @@ When looking at the 90 second exposure and the Gaia catalog we see that even wit
 
 We also have a signal-to-noise ratio (SNR) filter that is currently in development and we will have it as part of the default pipeline by the time ComCam commissioning starts this fall. The SNR filter will calculate a SNR value for donuts when cutting out postage stamps of donut sources and record this information. Stamps that fall below the SNR threshold will not even be included in the calculation step.
 
-As part of the metadata stored in the butler repository during the calculate Zernikes step of the pipeline we include the information on which donuts sigma clipping removed from the final estimate. In figure 4 we show the fraction of donut sources that passed the sigma clipping step in the final Zernike calculation as a function of exposure time. Since the Gaia-based catalog will be the same for all exposure times we are essentially measuring the number of quality Zernike estimates we get as a function of exposure time. While there is a lot of noise at shorter exposure times across the detectors there is a trend in the mean that shows we get more quality Zernike estimates at longer exposure times. This is expected as SNR will affect the quality of the Zernike estimate. However, we notice that between 60 seconds and 90 seconds we see that for detectors 2 and 8 have a lower number of accepted donuts as we go to the higher exposure time. 
+As part of the metadata stored in the butler repository during the calculate Zernikes step of the pipeline we include the information on which donuts sigma clipping removed from the final estimate. In figure 4 we show the fraction of donut sources that passed the sigma clipping step in the final Zernike calculation as a function of exposure time. Since the Gaia-based catalog will be the same for all exposure times we are essentially measuring the number of quality Zernike estimates we get as a function of exposure time. While there is a lot of noise at shorter exposure times across the detectors there is a trend in the mean that shows we get more quality Zernike estimates at longer exposure times. This is expected as SNR will affect the quality of the Zernike estimate. However, we notice that between 60 seconds and 90 seconds we see that for detectors 2 and 8 have a lower number of accepted donuts as we go to the higher exposure time.
 
 <figure>
-  <img src="notebooks/figures/sigma_clip_accepted_gaia_based.png" alt="Accepted donuts by exposure time using Gaia catalog."/>
+  <img src="https://raw.githubusercontent.com/lsst-sitcom/sitcomtn-133/main/notebooks/figures/sigma_clip_accepted_gaia_based.png" alt="Accepted donuts by exposure time using Gaia catalog."/>
   <figcaption>Figure 4: Donut sources from Gaia-based catalog that pass sigma clip filtering in Zernike calculation step as a function of exposure time.</figcaption>
 </figure>
 
-In figure 5 we see the intra-focal donut stamps for detector 2 between 60 seconds and 90 seconds as well as the (x,y) centroid positions in pixels of the sources in the donut stamp. Here we can identify four possible reasons for rejection of the donut stamps: 
+In figure 5 we see the intra-focal donut stamps for detector 2 between 60 seconds and 90 seconds as well as the (x,y) centroid positions in pixels of the sources in the donut stamp. Here we can identify four possible reasons for rejection of the donut stamps:
 1) **Saturation**: The source in the first column from left to right becomes saturated and distorted when going from 60 to 90 seconds. This donut is the brightest donut from the reference catalog on this detector so this makes sense.
 2) **Faint Blends**: The source in the second column does have a faint blend overlapping the central source. While in the catalog we use a two magnitude cut to define a blended source the studies affirming the effectiveness of this cut were conducted with LSST bands not the Gaia bands used by the existing Gaia DR2 based reference catalog without equivalent LSST bands. Furthermore, they were conducted on exposure times of 30 seconds and it may just be that as blends become brighter due to longer exposure tiems they have a greater tendency to affect the Zernike estimates.
 3) **Faint Sources**: The sources in the third and fourth columns simply look to be low SNR sources that perhaps were able to pass in the 60 seconds but not 90 seconds merely through random noise in the 90 second image making the estimate worse.
